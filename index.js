@@ -3,21 +3,23 @@ const app = express();
 const PORT = 8080;
 
 require('./api/videoGames');
+
+
 // init morgan
-// const morgan = require('morgan');
-// app.use(morgan('dev'));
+const morgan = require('morgan');
+app.use(morgan('dev'));
 
 // init body-parser
-// const bodyParser = require('body-parser');
-// app.use(bodyParser.json());
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
 // init cors
-// const cors = require('cors');
-// app.use(cors());
+const cors = require('cors');
+app.use(cors());
 
 // init db client
-// const client = require('./db/client');
-// client.connect();
+const client = require('./db/client');
+client.connect();
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
